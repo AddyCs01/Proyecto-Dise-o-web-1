@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contáctenos | Dulce Addy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/4571237f3c.js" crossorigin="anonymous"></script><!--para iconos como instagran Facebook-->
+</head>
+<body class="font-sans bg-gray-50">
+
+<header class="bg-pink-200">
+    <div class="container mx-auto flex justify-between items-center py-6 px-4">
+        <div class="flex items-center gap-4">
+            <i class="fa-solid fa-cake-candles text-3xl"></i>
+            <h1 class="text-3xl font-courgette"><a href="Index.html">Dulce Addy</a></h1>
+            <!-- MENÚ PRINCIPAL -->
+            <nav class="hidden md:flex gap-6 ml-8">
+                <a href="Index.html" class="text-gray-700 hover:text-white font-semibold transition">Inicio</a>
+                <a href="nosotros.html" class="text-gray-700 hover:text-white font-semibold transition">Nosotros</a>
+                <a href="contacto.html" class="text-gray-700 hover:text-white font-semibold transition">Contacto</a>
+            </nav>
+        </div>
+
+        <div class="flex items-center gap-4">
+            <i class="fa-regular fa-user text-2xl text-pink-400 cursor-pointer"></i>
+            <i class="fa-solid fa-cart-arrow-down text-2xl text-pink-400 cursor-pointer"></i>
+        </div>
+
+        <div class="md:hidden">
+            <button id="menu-btn" class="text-gray-700 text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-pink-200 px-4 py-4">
+        <a href="Index.html" class="block py-2 text-gray-700 hover:text-white font-semibold">Inicio</a>
+        <a href="nosotros.html" class="block py-2 text-gray-700 hover:text-white font-semibold">Nosotros</a>
+        <a href="contacto.html" class="block py-2 text-gray-700 hover:text-white font-semibold">Contacto</a>
+    </div>
+</header>
+
+<!-- ===== BANNER CONTACTO ===== -->
+<section class="relative bg-cover bg-center h-64" style="background-image: linear-gradient(90deg, rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('ImagenesProyecto/banner1.png')">
+    <div class="absolute inset-0 flex flex-col justify-center items-center text-center text-white">
+        <h2 class="text-3xl font-bold mb-2">Contáctenos</h2>
+        <p class="text-pink-400 text-lg">Estamos aquí para ayudarte</p>
+    </div>
+</section>
+<!-- ===== FORMULARIO DE CONTACTO ===== -->
+<main class="container mx-auto px-4 py-16 grid md:grid-cols-2 gap-12 items-start">
+    <!-- INFORMACIÓN DE CONTACTO -->
+<div class="space-y-6">
+    <h2 class="text-2xl font-bold mb-4">Contáctanos</h2>
+    <!-- BOTÓN WHATSAPP -->
+    <a href="https://wa.me/59162179309?text=Hola,%20quiero%20hacer%20un%20pedido" target="_blank"
+       class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition inline-block">
+        Enviar mensaje por WhatsApp
+    </a>
+
+    <p class="text-gray-700"><i class="fa-solid fa-envelope mr-2 text-pink-400"></i> dulceaddy.sc@gmail.com</p>
+    <p class="text-gray-700"><i class="fa-solid fa-location-dot mr-2 text-pink-400"></i> Santa Cruz, Bolivia</p>
+    <div>
+        <h3 class="text-xl font-semibold mb-2">Síguenos</h3>
+        <div class="flex gap-4">
+            <a href="#" class="text-pink-400 text-2xl"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="text-pink-400 text-2xl"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+    </div>
+</div>
+
+</main>
+<!-- ===== SCRIPT MENÚ MÓVIL Y WHATSAPP ===== -->
+<script>
+    // Menú móvil
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
+
+    btn.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+    });
+
+    // Función para enviar formulario a WhatsApp
+    function enviarWhatsApp(e) {
+        e.preventDefault(); // Evita que se recargue la página
+        const nombre = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const mensaje = document.getElementById('message').value;
+        const texto = `Hola,%20soy%20${encodeURIComponent(nombre)},%20mi%20correo%20es%20${encodeURIComponent(email)}.%20Mensaje:%20${encodeURIComponent(mensaje)}`;
+        window.open(`https://wa.me/59162179309?text=${texto}`, '_blank');
+    }
+</script>
+
+</body>
+</html>
